@@ -2,10 +2,12 @@
   # https://docs.atuin.sh/configuration/config/
   programs.atuin = {
     enable = true;
-    enableNushellIntegration = true;
+    # enableNushellIntegration = true;
+
     flags = [
       "--disable-up-arrow"
     ];
+
     settings = {
       auto_sync = false;
       update_check = false;

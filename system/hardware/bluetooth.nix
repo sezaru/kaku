@@ -2,6 +2,7 @@
   hardware.bluetooth = {
     enable = true;
     package = pkgs.bluez5-experimental;
+
     settings = {
       # make Xbox Series X controller work
       General = {

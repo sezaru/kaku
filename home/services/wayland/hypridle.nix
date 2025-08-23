@@ -11,6 +11,7 @@
   # timeout after which DPMS kicks in
   timeout = 300;
 in {
+  # TODO Not sre if we need this with quickshell
   # screen idle
   services.hypridle = {
     enable = true;

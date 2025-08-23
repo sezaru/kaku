@@ -15,8 +15,9 @@
   programs.yazi = {
     enable = true;
 
+    # TODO How to enable fish integration here?
     enableBashIntegration = config.programs.bash.enable;
-    enableNushellIntegration = config.programs.fish.enable;
+    # enableNushellIntegration = config.programs.fish.enable;
 
     settings = {
       mgr = {

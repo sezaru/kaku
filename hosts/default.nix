@@ -22,20 +22,18 @@
         ++ laptop
         ++ [
           ./aesthetic
-          "${mod}/programs/gamemode.nix"
           "${mod}/services/gnome-services.nix"
           "${mod}/services/location.nix"
           "${mod}/core/lanzaboote.nix"
           {
             home-manager = {
-              users.linuxmobile.imports =
-                homeImports."linuxmobile@aesthetic";
+              users.sezdocs.imports =
+                homeImports."sezdocs@aesthetic";
               extraSpecialArgs = specialArgs;
             };
           }
 
           inputs.agenix.nixosModules.default
-          inputs.chaotic.nixosModules.default
         ];
     };
   };

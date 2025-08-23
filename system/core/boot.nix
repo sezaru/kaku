@@ -9,7 +9,7 @@
     initrd = {
       systemd.enable = true;
     };
-    supportedFilesystems = ["ntfs"];
+    # supportedFilesystems = ["ntfs"];
 
     # use latest kernel
     kernelPackages = pkgs.linuxPackages_latest;
@@ -35,10 +35,12 @@
       cleanOnBoot = true;
     };
   };
+
   systemd.services.nix-daemon = {
     environment = {
       TMPDIR = "/var/tmp";
     };
   };
+
   environment.systemPackages = [config.boot.kernelPackages.cpupower];
 }

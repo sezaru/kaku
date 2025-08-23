@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: {
+  # TODO Review all pkgs here
   home.packages = with pkgs;
     [
       # archives
@@ -23,19 +24,6 @@
       ripgrep
       killall
       jq
-
-      discordo
-      fum
-      glow
-      gtt
-      meteor-git
-      reddit-tui
-      scope-tui
-      tuicam
-      wiremix
-      zfxtop
-      nix-search-tv
-      television
     ]
     ++ (with inputs.mynixpkgs.packages.${pkgs.system}; [
       opencode

@@ -7,12 +7,14 @@
   programs.git = {
     enable = true;
     lfs.enable = true;
-    userName = "Braian A. Diez";
-    userEmail = "bdiez19@gmail.com";
-    signing = {
-      key = "481EFFCF2C7B8C7B";
-      signByDefault = true;
-    };
+    userName = "Eduardo Barreto Alexandre";
+    # TODO Change email
+    userEmail = "git@dummy.com";
+    # TODO Fix this
+    # signing = {
+    #   key = "481EFFCF2C7B8C7B";
+    #   signByDefault = true;
+    # };
 
     delta = {
       enable = true;
@@ -22,6 +24,7 @@
         true-color = "never";
 
         features = "unobtrusive-line-numbers decorations";
+
         unobtrusive-line-numbers = {
           line-numbers = true;
           line-numbers-left-format = "{nm:>4}│";
@@ -29,6 +32,7 @@
           line-numbers-left-style = "grey";
           line-numbers-right-style = "grey";
         };
+
         decorations = {
           commit-decoration-style = "bold grey box ul";
           file-style = "bold blue";
@@ -39,11 +43,11 @@
     };
 
     extraConfig = {
-      init.defaultBranch = "main";
+      init.defaultBranch = "master";
       diff.colorMoved = "default";
       merge.conflictstyle = "diff3";
       push.autoSetupRemote = true;
-      core.editor = "hx";
+      core.editor = "emacs";
       push.default = "current";
       merge.stat = "true";
       core.whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";

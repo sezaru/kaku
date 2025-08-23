@@ -3,6 +3,7 @@
   lib,
   ...
 }: let
+  # TODO Do we need this script?
   script = pkgs.writeShellScript "power_monitor.sh" ''
     set -euo pipefail
 

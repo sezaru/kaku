@@ -12,6 +12,7 @@
 
     wireplumber = {
       enable = true;
+      # TODO Can't we make this config only if we enable bluetooth?
       configPackages = [
         (pkgs.writeTextDir "share/bluetooth.lua.d/51-bluez-config.lua" ''
           bluez_monitor.properties = {

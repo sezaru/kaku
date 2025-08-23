@@ -12,6 +12,7 @@
         pkgs,
         ...
       }: {
+        # TODO Check how these devshells works
         devShells = {
           default = pkgs.mkShell {
             packages = [pkgs.alejandra pkgs.git config.packages.repl];
@@ -50,9 +51,9 @@
       inputs.systems.follows = "systems";
     };
 
-    anyrun.url = "github:anyrun-org/anyrun";
+    # anyrun.url = "github:anyrun-org/anyrun";
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     hm = {
       url = "github:nix-community/home-manager";
@@ -61,8 +62,10 @@
 
     lanzaboote.url = "github:nix-community/lanzaboote";
 
+    # TODO Custom nix packages, check how to create it
     mynixpkgs.url = "github:linuxmobile/mynixpkgs";
 
+    # TODO I don't think we need this, we can use the official one
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,14 +76,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-gaming = {
-      url = "github:fufexan/nix-gaming";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-      };
-    };
-
+    # TODO Maybe remove? Need to check if it works fine with niri
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -88,6 +84,11 @@
 
     zen-browser = {
       url = "github:pfaj/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

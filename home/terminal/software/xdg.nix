@@ -5,7 +5,9 @@
 }: let
   browser = ["zen"];
   imageViewer = ["org.gnome.Loupe"];
+  # TODO Change this to mpv or vlc?
   videoPlayer = ["io.github.celluloid_player.Celluloid"];
+  # TODO Maybe change to one that can use my server?
   audioPlayer = ["io.bassi.Amberol"];
 
   xdgAssociations = type: program: list:
@@ -18,12 +20,15 @@
   image = xdgAssociations "image" imageViewer [
     "png" "jpg" "jpeg" "gif" "webp" "bmp" "tiff" "tif" "ico" "svg" "avif" "heic" "heif"
   ];
+
   video = xdgAssociations "video" videoPlayer [
     "mp4" "avi" "mkv" "mov" "wmv" "flv" "webm" "m4v" "3gp" "ogv" "ts" "mts" "m2ts"
   ];
+
   audio = xdgAssociations "audio" audioPlayer [
     "mp3" "flac" "wav" "aac" "ogg" "oga" "opus" "m4a" "wma" "ape" "alac" "aiff"
   ];
+
   browserTypes =
     (xdgAssociations "application" browser [
       "json"
@@ -41,6 +46,7 @@
       "unknown"
     ]);
 
+  # TODO Review these programs, specially the text editor and chrome
   # XDG MIME types
   associations = builtins.mapAttrs (_: v: (map (e: "${e}.desktop") v)) ({
       "application/pdf" = ["org.gnome.Papers"];

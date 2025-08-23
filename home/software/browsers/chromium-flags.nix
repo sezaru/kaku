@@ -1,3 +1,4 @@
+# TODO Review these flags
 _: {
   xdg.configFile."chromium-flags.conf".text = ''
     # Wayland support

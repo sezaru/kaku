@@ -44,6 +44,7 @@
   boot.kernelModules = ["tcp_bbr"];
 
   security = {
+    # TODO Is this only for hyprlock?
     # allow wayland lockers to unlock the screen
     pam.services.hyprlock.text = "auth include login";
 

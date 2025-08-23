@@ -3,10 +3,11 @@
   services.greetd = let
     session = {
       command = "${pkgs.niri}/bin/niri-session";
-      user = "linuxmobile";
+      user = "sezdocs";
     };
   in {
     enable = true;
+
     settings = {
       terminal.vt = 1;
       default_session = session;
@@ -18,5 +19,5 @@
   security.pam.services.greetd.enableGnomeKeyring = true;
 
   services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "linuxmobile";
+  services.displayManager.autoLogin.user = "sezdocs";
 }

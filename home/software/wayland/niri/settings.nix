@@ -23,8 +23,8 @@ in {
         SDL_VIDEODRIVER = "wayland";
       };
       spawn-at-startup = [
-        (makeCommand "hyprlock")
-        (makeCommand "swww-daemon")
+        # (makeCommand "hyprlock")
+        # (makeCommand "swww-daemon")
         {command = ["wl-paste" "--watch" "cliphist" "store"];}
         {command = ["wl-paste" "--type text" "--watch" "cliphist" "store"];}
       ];

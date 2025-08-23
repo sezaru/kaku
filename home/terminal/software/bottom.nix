@@ -3,6 +3,7 @@
     (writeScriptBin "btop" ''exec btm'')
     (writeScriptBin "htop" ''exec btm -b'')
   ];
+
   programs.bottom = {
     enable = true;
     settings = {

@@ -9,10 +9,11 @@
     inputs.nix-index-db.homeModules.nix-index
     inputs.stylix.homeModules.stylix
   ];
+
   home = {
-    username = "linuxmobile";
-    homeDirectory = "/home/linuxmobile";
-    stateVersion = "24.05";
+    username = "sezdocs";
+    homeDirectory = "/home/sezdocs";
+    stateVersion = "25.05";
   };
 
   # disable manuals as nmd fails to build often
@@ -34,6 +35,7 @@
     enable = true;
     autoEnable = false;
     polarity = "dark";
+
     opacity = {
       popups = 1.0;
       terminal = 1.0;
@@ -59,11 +61,12 @@
 
     base16Scheme = "${inputs.self}/home/shared/colors/charm.yaml";
 
+    # TODO Check target options
     targets = {
       bat.enable = true;
-      helix.enable = true;
+      # helix.enable = true;
       nixos-icons.enable = true;
-      nushell.enable = true;
+      fish.enable = true;
       qt.enable = true;
       starship.enable = true;
       yazi.enable = true;
