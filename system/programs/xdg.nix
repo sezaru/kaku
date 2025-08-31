@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  # TODO Check this
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;

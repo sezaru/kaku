@@ -13,8 +13,19 @@ in {
     dgop
     pkgs.matugen
     pkgs.khal
+    pkgs.ddcutil
     pkgs.gammastep
     pkgs.cliphist
+    pkgs.wl-clipboard
+    pkgs.brightnessctl
+    pkgs.cava
+
+    pkgs.fira-code
+    pkgs.inter-nerdfont
+    pkgs.material-symbols
+
+    pkgs.colloid-icon-theme
+    pkgs.colloid-gtk-theme
   ];
 
   xdg.configFile = {

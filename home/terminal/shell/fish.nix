@@ -50,6 +50,8 @@
       gitgrep = ''
         ${pkgs.git}/bin/git ls-files | ${pkgs.ripgrep}/bin/rg $argv
       '';
+
+      dev = "nix develop --impure /etc/nixos#$argv --command fish";
     };
 
     shellAbbrs = {

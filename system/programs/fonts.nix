@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  # TODO Check this
   fonts = {
     packages = with pkgs; [
       # icon fonts
