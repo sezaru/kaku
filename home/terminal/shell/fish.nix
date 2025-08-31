@@ -73,7 +73,8 @@
 
       c = "clear";
       q = "exit";
-      temp = "cd /tmp/";
+
+      rm = "${pkgs.gtrash}/bin/gtrash put";
 
       test-build = "${pkgs.nh}/bin/nh os test /etc/nixos";
       switch-build = "${pkgs.nh}/bin/nh os switch /etc/nixos";

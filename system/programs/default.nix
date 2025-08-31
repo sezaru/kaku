@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    # ./fonts.nix
+    ./fonts.nix
     ./home-manager.nix
     ./xdg.nix
   ];
