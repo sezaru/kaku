@@ -4,27 +4,26 @@
   ...
 }: {
   # TODO Review all pkgs here
-  home.packages = with pkgs;
-    [
-      # archives
-      zip
-      unzip
-      unrar
+  home.packages = with pkgs; [
+    # archives
+    zip
+    unzip
+    unrar
 
-      # misc
-      libnotify
-      fontconfig
+    # misc
+    libnotify
+    fontconfig
 
-      # utils
-      du-dust
-      duf
-      fd
-      file
-      jaq
-      ripgrep
-      killall
-      jq
-    ];
+    # utils
+    du-dust
+    duf
+    fd
+    file
+    jaq
+    ripgrep
+    killall
+    jq
+  ];
 
   programs = {
     eza.enable = true;

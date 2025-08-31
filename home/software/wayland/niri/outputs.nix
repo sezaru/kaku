@@ -1,8 +1,13 @@
-{ config, lib, pkgs, vars, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  vars,
+  ...
+}: let
   computerName = vars.name;
 
-  lenovoOutputs =  {
+  lenovoOutputs = {
     "eDP-1" = {
       scale = 1.0;
 
@@ -12,11 +17,9 @@ let
       };
     };
   };
-in
-{
+in {
   programs.niri.settings.outputs =
-    if computerName == "lenovo" then
-      lenovoOutputs
-    else
-      abort "Unknown computer name";
+    if computerName == "lenovo"
+    then lenovoOutputs
+    else abort "Unknown computer name";
 }

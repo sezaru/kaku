@@ -3,13 +3,12 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.niri.homeModules.niri ./settings.nix ./binds.nix ./rules.nix];
-
-  home = {
-    packages = with pkgs; [
-      seatd
-      # TODO Do we need this?
-      jaq
-    ];
-  };
+  imports = [
+    inputs.niri.homeModules.niri
+    ./inputs.nix
+    ./outputs.nix
+    ./settings.nix
+    ./binds.nix
+    ./rules.nix
+  ];
 }

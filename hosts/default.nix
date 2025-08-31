@@ -11,7 +11,6 @@
 
     # get the basic config to build on top of
     inherit (import "${self}/system") desktop laptop;
-
   in {
     lenovo = nixosSystem rec {
       specialArgs = {

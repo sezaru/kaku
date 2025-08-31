@@ -1,5 +1,8 @@
-{pkgs, vars, ...}:
-let
+{
+  pkgs,
+  vars,
+  ...
+}: let
   amd = {
     enable = true;
 
@@ -17,10 +20,9 @@ let
       amdvlk
     ];
   };
-in{
+in {
   hardware.graphics =
-    if vars.gpu == "amd" then
-      amd
-    else
-      abort "Unknown gpu";
+    if vars.gpu == "amd"
+    then amd
+    else abort "Unknown gpu";
 }
