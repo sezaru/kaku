@@ -7,7 +7,11 @@
 
       imports = [./home/profiles ./hosts];
 
-      perSystem = {config, pkgs, ...}: {
+      perSystem = {
+        config,
+        pkgs,
+        ...
+      }: {
         devShells = {
           default = pkgs.mkShell {
             packages = [pkgs.alejandra pkgs.git];

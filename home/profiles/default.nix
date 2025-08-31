@@ -21,7 +21,7 @@ in {
 
   flake = {
     homeConfiguration = {
-      "sezdocs_lenovo" = homeManagerConfiguration {
+      "sezdocs@lenovo" = homeManagerConfiguration {
         modules = homeImports."sezdocs@lenovo";
         inherit pkgs extraSpecialArgs;
       };

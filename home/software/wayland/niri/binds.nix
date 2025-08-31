@@ -60,15 +60,15 @@ in {
     };
 
     "Mod+Ctrl+Return" = {
-        action = quickshellIpc "spotlight" "toggle";
-        hotkey-overlay.title = "Application Launcher";
+      action = quickshellIpc "spotlight" "toggle";
+      hotkey-overlay.title = "Application Launcher";
     };
 
     "XF86Search".action = quickshellIpc "spotlight" "toggle";
 
     "Mod+O" = {
-        action = toggle-overview;
-        repeat = false;
+      action = toggle-overview;
+      repeat = false;
     };
 
     "Mod+C".action = center-visible-columns;
