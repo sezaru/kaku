@@ -6,7 +6,6 @@ in {
     ./software
     ./shell/starship.nix
     ./shell/fish.nix
-    # ./shell/nushell.nix
   ];
 
   home.sessionVariables = {

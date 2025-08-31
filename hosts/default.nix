@@ -34,6 +34,7 @@
           }
 
           inputs.agenix.nixosModules.default
+          inputs.stylix.nixosModules.stylix
         ];
     };
   };

@@ -8,6 +8,8 @@ let
 
     ./network/default.nix
 
+    ./stylix.nix
+
     ./programs
 
     ./services

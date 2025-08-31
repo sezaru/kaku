@@ -5,36 +5,40 @@
   imports = [
     ./browsers/chromium.nix
     ./browsers/zen.nix
+    ./editors/emacs
     ./gtk.nix
     ./media
   ];
 
-  # TODO Review these packages
   home.packages = with pkgs; [
-    # messaging
+    # Messaging
     telegram-desktop
-    # vesktop
+    # discord
+    # signal-desktop
 
-    # misc
+    # Media
+    feishin
+    (celluloid.override {youtubeSupport = true;})
+    loupe
+    inkscape
+    gimp
+
+    # Misc
     ps_mem
     pciutils
     nixos-icons
-    colord
-    cliphist
-    ffmpegthumbnailer
-    imagemagick
+    # colord
+    # cliphist
+    # ffmpegthumbnailer
+    # imagemagick
 
-    # gnome
-    (celluloid.override {youtubeSupport = true;})
+    # Basics
     file-roller
-    loupe
     nautilus
     (papers.override {supportNautilus = true;})
     resources
 
-    inkscape
-    gimp
-
+    # Terminal
     ghostty
   ];
 }
