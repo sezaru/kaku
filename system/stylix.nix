@@ -34,8 +34,6 @@
 
     base16Scheme = "${inputs.self}/home/shared/colors/charm.yaml";
 
-    # TODO Check how stylix screenshot works
-
     targets = {
       console.enable = true;
       grub.enable = true;

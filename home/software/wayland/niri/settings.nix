@@ -26,7 +26,7 @@ in {
         };
 
         focus-ring = {
-          enable = false;
+          enable = true;
 
           width = 2;
           active.color = "#7FC8FF";

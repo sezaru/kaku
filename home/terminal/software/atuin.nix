@@ -11,9 +11,8 @@
       update_check = false;
       workspaces = false;
       ctrl_n_shortcuts = true;
-      dialect = "uk";
+      dialect = "us";
       filter_mode = "host";
-      # TODO Do this need skim installed?
       search_mode = "skim";
       filter_mode_shell_up_key_binding = "session";
       style = "compact";

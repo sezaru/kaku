@@ -10,9 +10,7 @@ in {
           if keyboardType == "normal"
           then "altwin:swap_lalt_lwin,compose:ralt,ctrl:nocaps"
           else if keyboardType == "mac"
-          then
-            # TODO Fix this
-            ""
+          then "compose:ralt,ctrl:nocaps"
           else abort "Unkown keyboard type";
       };
 
@@ -25,6 +23,7 @@ in {
     touchpad = {
       dwt = true;
       tap = true;
+      natural-scroll = false;
     };
 
     focus-follows-mouse = {

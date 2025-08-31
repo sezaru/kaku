@@ -1,33 +1,17 @@
 {pkgs, ...}: {
-  # TODO Review all pkgs here
   home.packages = with pkgs; [
-    # archives
+    # Archives
     zip
     unzip
     unrar
 
-    # misc
-    libnotify
-    fontconfig
-
-    # utils
-    du-dust
-    duf
-    fd
-    file
-    jaq
-    ripgrep
+    # Utils
     killall
-    jq
   ];
 
   programs = {
     eza.enable = true;
-
     ssh.enable = true;
-
-    dircolors = {
-      enable = true;
-    };
+    dircolors.enable = true;
   };
 }

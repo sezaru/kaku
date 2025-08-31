@@ -5,20 +5,17 @@
 }: {
   imports = [
     ./theme/icons.nix
-    # ./theme/manager.nix
-    # ./theme/status.nix
   ];
 
-  # general file info
-  home.packages = [pkgs.exiftool];
+  home.packages = [
+    # General file info
+    pkgs.exiftool
+  ];
 
-  # yazi file manager
   programs.yazi = {
     enable = true;
 
-    # TODO How to enable fish integration here?
-    enableBashIntegration = config.programs.bash.enable;
-    # enableNushellIntegration = config.programs.fish.enable;
+    enableFishIntegration = true;
 
     settings = {
       mgr = {

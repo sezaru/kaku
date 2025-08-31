@@ -55,7 +55,7 @@
         ${pkgs.git}/bin/git ls-files | ${pkgs.ripgrep}/bin/rg $argv
       '';
 
-      dev = "nix develop --impure /etc/nixos#$argv --command fish";
+      dev = "nix develop --no-pure-eval /etc/nixos#$argv --profile /etc/nixos/.profiles/$argv --command fish";
     };
 
     shellAbbrs = {
@@ -75,6 +75,10 @@
       q = "exit";
 
       rm = "${pkgs.gtrash}/bin/gtrash put";
+
+      grep = "${pkgs.ripgrep}/bin/rg";
+
+      df = "${pkgs.du-dust}/bin/duf";
 
       test-build = "${pkgs.nh}/bin/nh os test /etc/nixos";
       switch-build = "${pkgs.nh}/bin/nh os switch /etc/nixos";
