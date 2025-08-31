@@ -5,22 +5,21 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
 
-      imports = [./home/profiles ./hosts ./pkgs];
+      imports = [./home/profiles ./hosts];
 
       perSystem = {
         config,
         pkgs,
         ...
       }: {
-        # TODO Check how these devshells works
         devShells = {
           default = pkgs.mkShell {
-            packages = [pkgs.alejandra pkgs.git config.packages.repl];
+            packages = [pkgs.alejandra pkgs.git];
             name = "nixland";
             DIRENV_LOG_FORMAT = "";
           };
         };
-        # Nix Formatter
+
         formatter = pkgs.alejandra;
       };
     };

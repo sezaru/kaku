@@ -97,7 +97,7 @@ in {
   home.packages = [
     # used by `gio open` and xdp-gtk
     (pkgs.writeShellScriptBin "xdg-terminal-exec" ''
-      foot start "$@"
+      ${pkgs.ghostty}/bin/ghostty start "$@"
     '')
     pkgs.xdg-utils
   ];

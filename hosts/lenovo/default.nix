@@ -7,17 +7,17 @@
   imports = [./hardware-configuration.nix];
 
   boot = {
-    # load modules on boot
     kernelModules = ["amdgpu" "v4l2loopback" "i2c-dev"];
-    kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
+
     kernelParams = [
       "amd_pstate=active"
       "amd_iommu"
       "mitigations=off"
-      "ideapad_laptop.allow_v4_dytc=Y"
       "nvme_core.default_ps_max_latency_us=0"
     ];
+
     kernel.sysctl = {
       "vm.swappiness" = 10;
       "vm.vfs_cache_pressure" = 50;
@@ -26,12 +26,13 @@
 
       "kernel.nmi_watchdog" = 0;
     };
+
     extraModprobeConfig = ''
       options v4l2loopback exclusive_caps=1 card_label="OBS Virtual Output"
     '';
   };
 
-  networking.hostName = "aesthetic";
+  networking.hostName = "lenovo";
 
   security.tpm2.enable = true;
 

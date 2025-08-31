@@ -7,9 +7,9 @@
   extraSpecialArgs = {inherit inputs self;};
 
   homeImports = {
-    "sezdocs@aesthetic" = [
+    "sezdocs@lenovo" = [
       ../.
-      ./aesthetic
+      ./lenovo
     ];
   };
 
@@ -21,8 +21,8 @@ in {
 
   flake = {
     homeConfiguration = {
-      "sezdocs_aesthetic" = homeManagerConfiguration {
-        modules = homeImports."sezdocs@aesthetic";
+      "sezdocs_lenovo" = homeManagerConfiguration {
+        modules = homeImports."sezdocs@lenovo";
         inherit pkgs extraSpecialArgs;
       };
     };

@@ -12,13 +12,10 @@
     deadnix
     # Lints and suggestions for the nix programming language
     statix
-
-    self.packages.${pkgs.system}.repl
   ];
 
   programs.direnv = {
     enable = true;
-    # enableNushellIntegration = true;
     nix-direnv.enable = true;
     silent = true;
   };

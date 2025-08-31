@@ -24,27 +24,15 @@
       ripgrep
       killall
       jq
-    ]
-    ++ (with inputs.mynixpkgs.packages.${pkgs.system}; [
-      opencode
-      toney
-      bmm
-      omm
-      prs
-      dfft
-      crush
-    ]);
+    ];
 
   programs = {
     eza.enable = true;
+
     ssh.enable = true;
+
     dircolors = {
       enable = true;
-      # enableNushellIntegration = true;
-    };
-    autojump = {
-      enable = true;
-      # enableNushellIntegration = true;
     };
   };
 }

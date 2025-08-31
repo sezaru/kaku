@@ -61,13 +61,14 @@
 
     base16Scheme = "${inputs.self}/home/shared/colors/charm.yaml";
 
+    # TODO Check how stylix screenshot works
+
     # TODO Check target options
     targets = {
       bat.enable = true;
-      # helix.enable = true;
       nixos-icons.enable = true;
-      fish.enable = true;
-      qt.enable = true;
+      # fish.enable = true;
+      # qt.enable = true;
       starship.enable = true;
       yazi.enable = true;
     };

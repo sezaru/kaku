@@ -1,8 +1,6 @@
 {
-  # https://docs.atuin.sh/configuration/config/
   programs.atuin = {
     enable = true;
-    # enableNushellIntegration = true;
 
     flags = [
       "--disable-up-arrow"
@@ -15,6 +13,7 @@
       ctrl_n_shortcuts = true;
       dialect = "uk";
       filter_mode = "host";
+      # TODO Do this need skim installed?
       search_mode = "skim";
       filter_mode_shell_up_key_binding = "session";
       style = "compact";

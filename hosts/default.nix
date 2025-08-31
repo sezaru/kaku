@@ -15,20 +15,20 @@
     # get these into the module system
     specialArgs = {inherit inputs self;};
   in {
-    aesthetic = nixosSystem {
+    lenovo = nixosSystem {
       inherit specialArgs;
       modules =
         desktop
         ++ laptop
         ++ [
-          ./aesthetic
+          ./lenovo
           "${mod}/services/gnome-services.nix"
           "${mod}/services/location.nix"
           "${mod}/core/lanzaboote.nix"
           {
             home-manager = {
               users.sezdocs.imports =
-                homeImports."sezdocs@aesthetic";
+                homeImports."sezdocs@lenovo";
               extraSpecialArgs = specialArgs;
             };
           }
