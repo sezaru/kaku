@@ -15,6 +15,7 @@ let
     ./services
     ./services/ananicy.nix
     ./services/pipewire.nix
+    ./services/gdm.nix
   ];
 
   laptop =
