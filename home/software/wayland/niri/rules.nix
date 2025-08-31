@@ -2,7 +2,7 @@
   programs.niri.settings.window-rules = [
     {
       geometry-corner-radius = let
-        radius = 0.0;
+        radius = 10.0;
       in {
         bottom-left = radius;
         bottom-right = radius;
@@ -83,22 +83,6 @@
           app-id = "firefox";
           title = "Picture-in-Picture";
         }
-      ];
-
-      open-floating = true;
-
-      default-floating-position = {
-        x = 32;
-        y = 32;
-        relative-to = "bottom-right";
-      };
-
-      default-column-width = {fixed = 480;};
-      default-window-height = {fixed = 270;};
-    }
-
-    {
-      matches = [
         {
           app-id = "zen";
           title = "Picture-in-Picture";

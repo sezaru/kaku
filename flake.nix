@@ -7,17 +7,15 @@
 
       imports = [./home/profiles ./hosts];
 
-      perSystem = {
-        config,
-        pkgs,
-        ...
-      }: {
+      perSystem = {config, pkgs, ...}: {
         devShells = {
           default = pkgs.mkShell {
             packages = [pkgs.alejandra pkgs.git];
             name = "nixland";
             DIRENV_LOG_FORMAT = "";
           };
+
+          elixir = import ./dev_shells/elixir.nix;
         };
 
         formatter = pkgs.alejandra;
@@ -50,10 +48,6 @@
       inputs.systems.follows = "systems";
     };
 
-    # anyrun.url = "github:anyrun-org/anyrun";
-
-    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-
     hm = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -64,7 +58,6 @@
     # TODO Custom nix packages, check how to create it
     mynixpkgs.url = "github:linuxmobile/mynixpkgs";
 
-    # TODO I don't think we need this, we can use the official one
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -75,7 +68,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # TODO Maybe remove? Need to check if it works fine with niri
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";

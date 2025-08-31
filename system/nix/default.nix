@@ -11,8 +11,7 @@
     ./substituters.nix
   ];
 
-  # we need git for flakes
-  environment.systemPackages = [pkgs.git];
+  environment.systemPackages = [pkgs.git pkgs.devenv];
 
   nix = let
     flakeInputs = lib.filterAttrs (_: v: lib.isType "flake" v) inputs;

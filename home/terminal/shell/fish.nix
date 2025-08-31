@@ -12,12 +12,6 @@
     '';
 
     interactiveShellInit = ''
-      fish_vi_key_bindings
-      set fish_cursor_default block
-      set fish_cursor_insert line
-      set fish_cursor_replace_one underscore
-      set fish_cursor_visual block
-
       set -g fish_color_autosuggestion brblack
       set -g fish_color_command blue
       set -g fish_color_error red
@@ -29,23 +23,23 @@
 
     functions = {
       fcd = ''
-        set -l dir (fd --type d | sk | string trim)
+        set -l dir (${pkgs.fd}/bin/fd --type d | ${pkgs.skim}/bin/sk | string trim)
         if test -n "$dir"
           cd $dir
         end
       '';
 
       installed = ''
-        nix-store --query --requisites /run/current-system/ | string replace -r '.*?-(.*)' '$1' | sort | uniq | sk
+        nix-store --query --requisites /run/current-system/ | string replace -r '.*?-(.*)' '$1' | sort | uniq | ${pkgs.skim}/bin/sk
       '';
 
       installedall = ''
-        nix-store --query --requisites /run/current-system/ | sk | wl-copy
+        nix-store --query --requisites /run/current-system/ | ${pkgs.skim}/bin/sk | ${pkgs.wl-clipboard}/bin/wl-copy
       '';
 
       fm = ''
         set -l tmp (mktemp -t "yazi-cwd.XXXXX")
-        yazi $argv --cwd-file $tmp
+        ${pkgs.yazi}/bin/yazi $argv --cwd-file $tmp
         set -l cwd (cat $tmp)
         if test -n "$cwd" -a "$cwd" != "$PWD"
           cd $cwd
@@ -54,33 +48,33 @@
       '';
 
       gitgrep = ''
-        git ls-files | rg $argv
+        ${pkgs.git}/bin/git ls-files | ${pkgs.ripgrep}/bin/rg $argv
       '';
     };
 
     shellAbbrs = {
-      z = "zoxide query";
-      zi = "zoxide query -i";
+      z = "${pkgs.zoxide}/bin/zoxide query";
+      zi = "${pkgs.zoxide}/bin/zoxide query -i";
     };
 
     shellAliases = {
-      cleanup = "sudo nix-collect-garbage --delete-older-than 1d";
+      cleanup = "${pkgs.nh}/bin/nh clean all";
       listgen = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
       nixremove = "nix-store --gc";
       bloat = "nix path-info -Sh /run/current-system";
       cleanram = "sudo sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'";
-      trimall = "sudo fstrim -va";
+      trimall = "sudo ${pkgs.util-linux}/bin/fstrim -va";
 
       c = "clear";
       q = "exit";
       temp = "cd /tmp/";
 
-      test-build = "nh os test /etc/nixos";
-      switch-build = "nh os switch /etc/nixos";
+      test-build = "${pkgs.nh}/bin/nh os test /etc/nixos";
+      switch-build = "${pkgs.nh}/bin/nh os switch /etc/nixos";
 
-      l = "eza -lF --time-style=long-iso --icons";
-      ll = "eza -h --git --icons --color=auto --group-directories-first -s extension";
-      tree = "eza --tree --icons --tree";
+      l = "${pkgs.eza}/bin/eza -lF --time-style=long-iso --icons";
+      ll = "${pkgs.eza}/bin/eza -h --git --icons --color=auto --group-directories-first -s extension";
+      tree = "${pkgs.eza}/bin/eza --tree --icons --tree";
     };
 
     plugins = with pkgs.fishPlugins; [
