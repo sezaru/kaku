@@ -1,9 +1,4 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     ./terminal
     inputs.nix-index-db.homeModules.nix-index
@@ -26,7 +21,10 @@
   # Let HM manage itself when in standalone mode
   programs.home-manager.enable = true;
 
-  programs.nix-index.enable = true;
+  programs.nix-index = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 
   stylix = {
     targets = {

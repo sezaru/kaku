@@ -4,10 +4,6 @@
   ...
 }: let
   pointer = config.home.pointerCursor;
-
-  makeCommand = command: {
-    command = [command];
-  };
 in {
   programs.niri = {
     enable = true;

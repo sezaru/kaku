@@ -7,19 +7,9 @@
 
       imports = [./home/profiles ./hosts];
 
-      perSystem = {
-        config,
-        pkgs,
-        ...
-      }: {
+      perSystem = {pkgs, ...}: {
         devShells = {
-          default = pkgs.mkShell {
-            packages = [pkgs.alejandra pkgs.git];
-            name = "nixland";
-            DIRENV_LOG_FORMAT = "";
-          };
-
-          elixir = import ./dev_shells/elixir.nix;
+          elixir = import ./dev_shells/elixir.nix {inherit inputs pkgs;};
         };
 
         formatter = pkgs.alejandra;
@@ -43,6 +33,11 @@
     };
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    devenv = {
+      url = "github:cachix/devenv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # rest of inputs, alphabetical order
     agenix = {

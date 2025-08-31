@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # TODO Review all pkgs here
   home.packages = with pkgs; [
     # archives

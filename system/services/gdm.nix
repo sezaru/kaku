@@ -1,11 +1,10 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  services.displayManager.gdm = {
-    enable = true;
-    wayland = true;
+{pkgs, ...}: {
+  services.displayManager = {
+    gdm = {
+      enable = true;
+      wayland = true;
+    };
+
+    sessionPackages = [pkgs.niri];
   };
 }

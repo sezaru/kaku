@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  vars,
-  ...
-}: let
+{vars, ...}: let
   keyboardType = vars.keyboardType;
 in {
   programs.niri.settings.input = {

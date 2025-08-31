@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{...}:
 # Wayland config
 {
   imports = [
