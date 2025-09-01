@@ -63,13 +63,9 @@ in {
       };
 
       cursor = {
-        size = 24;
+        size = pointer.size;
         theme = "${pointer.name}";
         hide-after-inactive-ms = 3000;
-      };
-
-      environment = {
-        DISPLAY = ":0";
       };
 
       hotkey-overlay.skip-at-startup = true;

@@ -1,6 +1,7 @@
 {inputs, ...}: {
   imports = [
     inputs.niri.homeModules.niri
+    ./envs.nix
     ./inputs.nix
     ./outputs.nix
     ./settings.nix
