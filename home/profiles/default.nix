@@ -11,6 +11,11 @@
       ../.
       ./lenovo
     ];
+
+    "sezdocs@macbook" = [
+      ../.
+      ./macbook
+    ];
   };
 
   inherit (inputs.hm.lib) homeManagerConfiguration;
@@ -23,6 +28,11 @@ in {
     homeConfiguration = {
       "sezdocs@lenovo" = homeManagerConfiguration {
         modules = homeImports."sezdocs@lenovo";
+        inherit pkgs extraSpecialArgs;
+      };
+
+      "sezdocs@macbook" = homeManagerConfiguration {
+        modules = homeImports."sezdocs@macbook";
         inherit pkgs extraSpecialArgs;
       };
     };

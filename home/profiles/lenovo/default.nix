@@ -2,6 +2,7 @@
   imports = [
     # services
     ../../services/quickshell
+    ../../services/hypridle.nix
 
     # software
     ../../software
@@ -10,6 +11,5 @@
     # system services
     ../../services/system/gpg-agent.nix
     ../../services/system/polkit-agent.nix
-    # ../../services/system/power-monitor.nix
   ];
 }

@@ -44,5 +44,38 @@
           inputs.stylix.nixosModules.stylix
         ];
     };
+
+    macbook = nixosSystem rec {
+      specialArgs = {
+        inherit inputs self;
+
+        vars = {
+          name = "macbook";
+          type = "laptop";
+          keyboardType = "mac";
+          gpu = "mac";
+        };
+      };
+
+      modules =
+        desktop
+        ++ laptop
+        ++ [
+          ./macbook
+          "${mod}/services/gnome-services.nix"
+          "${mod}/services/location.nix"
+          "${mod}/core/lanzaboote.nix"
+          {
+            home-manager = {
+              users.sezdocs.imports =
+                homeImports."sezdocs@macbook";
+              extraSpecialArgs = specialArgs;
+            };
+          }
+
+          inputs.agenix.nixosModules.default
+          inputs.stylix.nixosModules.stylix
+        ];
+    };
   };
 }

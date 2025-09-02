@@ -20,9 +20,15 @@
       amdvlk
     ];
   };
+
+  mac = {
+    enable = true;
+  };
 in {
   hardware.graphics =
     if vars.gpu == "amd"
     then amd
+    else if vars.gpu == "mac"
+    then mac
     else abort "Unknown gpu";
 }

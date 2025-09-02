@@ -22,12 +22,6 @@
       "plymouth.use-simpledrm"
     ];
 
-    loader = {
-      # systemd-boot on UEFI
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-
     plymouth.enable = true;
 
     tmp = {

@@ -7,7 +7,11 @@ inputs.devenv.lib.mkShell {
   inherit inputs pkgs;
 
   modules = [
-    ({config, pkgs, ...}: let
+    ({
+      config,
+      pkgs,
+      ...
+    }: let
       state_dir = config.env.DEVENV_STATE;
 
       mix_dir = "${state_dir}/mix";
@@ -15,7 +19,7 @@ inputs.devenv.lib.mkShell {
 
       erlang_libraries = "${hex_dir}/lib/erlang/lib";
       erlang_history = "${state_dir}/erlang-history";
-      in {
+    in {
       env = {
         MIX_HOME = mix_dir;
         HEX_HOME = hex_dir;

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, vars, ...}: {
   home.packages = [
     pkgs.fzf
   ];
@@ -56,6 +56,19 @@
       '';
 
       dev = "nix develop --no-pure-eval /etc/nixos#$argv --profile /etc/nixos/.profiles/$argv --command fish";
+
+      # To generate the key and store it into the Yubikey, run the following command:
+      # ssh-keygen -t ecdsa-sk -O resident -O application=ssh:<name of profile>
+      import_ssh_key = ''
+      set -l tmp (mktemp -d -t "ssh-cwd.XXXXX")
+      pushd $tmp
+      pwd
+      ssh-keygen -K
+      mv id_ecdsa*${vars.name}.pub ~/.ssh/id_ecdsa.pub
+      mv id_ecdsa*${vars.name} ~/.ssh/id_ecdsa
+      popd
+      rm -f $tmp
+      '';
     };
 
     shellAbbrs = {

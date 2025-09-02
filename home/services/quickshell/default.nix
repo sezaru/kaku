@@ -31,7 +31,7 @@ in {
     "quickshell" = {
       source = builtins.fetchGit {
         url = "https://github.com/AvengeMedia/DankMaterialShell.git";
-        rev = "4b7a43fccd491846f5cde91519945114025edff8";
+        rev = "87f70c66ba867f05dd83070ac7d30a19ff0991aa";
       };
 
       executable = false;

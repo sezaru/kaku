@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  home.packages = [
+    pkgs.fd
+  ];
+
   programs.doom-emacs = {
     enable = true;
 
