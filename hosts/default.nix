@@ -10,7 +10,7 @@
     mod = "${self}/system";
 
     # get the basic config to build on top of
-    inherit (import "${self}/system") desktop laptop;
+    inherit (import "${self}/system") desktop laptop macbook lenovo;
   in {
     lenovo = nixosSystem rec {
       specialArgs = {
@@ -25,8 +25,7 @@
       };
 
       modules =
-        desktop
-        ++ laptop
+        lenovo
         ++ [
           ./lenovo
           "${mod}/services/gnome-services.nix"
@@ -58,8 +57,7 @@
       };
 
       modules =
-        desktop
-        ++ laptop
+        macbook
         ++ [
           ./macbook
           "${mod}/services/gnome-services.nix"
@@ -75,6 +73,7 @@
 
           inputs.agenix.nixosModules.default
           inputs.stylix.nixosModules.stylix
+          inputs.asahi.nixosModules.apple-silicon-support
         ];
     };
   };

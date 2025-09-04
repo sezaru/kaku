@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [./hardware-configuration.nix];
 
   boot = {
@@ -32,7 +36,7 @@
   security.tpm2.enable = true;
 
   services = {
-    # for SSD/NVME
+    # For SSD/NVME
     fstrim.enable = true;
     scx.enable = true;
     scx.scheduler = "scx_rusty";
@@ -41,4 +45,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # use latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 }

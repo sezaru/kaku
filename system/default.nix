@@ -1,5 +1,5 @@
 let
-  desktop = [
+  base = [
     ./core/boot.nix
     ./core/default.nix
 
@@ -13,18 +13,22 @@ let
     ./programs
 
     ./services
-    ./services/ananicy.nix
     ./services/pipewire.nix
     ./services/gdm.nix
   ];
 
+  desktop = base;
+
   laptop =
-    desktop
+    base
     ++ [
       ./hardware/bluetooth.nix
-
       ./services/power.nix
     ];
+
+  lenovo = laptop ++ [./services/ananicy.nix];
+
+  macbook = laptop ++ [./services/tiny-dfr.nix];
 in {
-  inherit desktop laptop;
+  inherit desktop laptop lenovo macbook;
 }

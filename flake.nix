@@ -62,6 +62,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    asahi = {
+      url = "github:nix-community/nixos-apple-silicon";
+      inputs.nixpkgs.follows = "";
+    };
+
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";

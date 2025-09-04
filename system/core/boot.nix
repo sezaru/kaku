@@ -6,15 +6,10 @@
   boot = {
     bootspec.enable = true;
 
-    initrd = {
-      systemd.enable = true;
-    };
-    # supportedFilesystems = ["ntfs"];
-
-    # use latest kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    initrd.systemd.enable = true;
 
     consoleLogLevel = 3;
+
     kernelParams = [
       "quiet"
       "systemd.show_status=auto"
@@ -25,7 +20,7 @@
     plymouth.enable = true;
 
     tmp = {
-      useTmpfs = true;
+      useTmpfs = false;
       cleanOnBoot = true;
     };
   };

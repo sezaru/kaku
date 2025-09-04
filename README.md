@@ -105,6 +105,8 @@ mount /dev/disk/by-label/EFI /mnt/boot
 nix-shell -p nixVersions.stable git
 ```
 
+# TODO Add texto about sbctl create-keys
+
 - Clone my Dotfiles
 
 ```bash

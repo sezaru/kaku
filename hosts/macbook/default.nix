@@ -1,14 +1,22 @@
-{ config, ... }:
-
-{
-  imports = [./hardware-configuration.nix ./apple-silicon-support];
+{config, ...}: {
+  imports = [./hardware-configuration.nix];
 
   boot = {
     kernelModules = ["v4l2loopback" "i2c-dev"];
 
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
 
-    kernelParams = ["nvme_core.default_ps_max_latency_us=0"];
+    kernelParams = [
+      "nvme_core.default_ps_max_latency_us=0"
+
+      # Enables the pixels horizontal of the notch.
+      # "apple_dcp.show_notch=1"
+
+      # Default on asahi fedora.
+      "zswap.enabled=1"
+      "zswap.compressor=lz4"
+      "zswap.zpool=z3fold"
+    ];
 
     kernel.sysctl = {
       "vm.swappiness" = 10;
@@ -29,16 +37,26 @@
   security.tpm2.enable = true;
 
   services = {
-    # for SSD/NVME
+    # For SSD/NVME
     fstrim.enable = true;
-    scx.enable = true;
-    scx.scheduler = "scx_rusty";
   };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
 
-  # Specify path to peripheral firmware files.
-  hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+  hardware.asahi = {
+    setupAsahiSound = true;
+
+    # Specify path to peripheral firmware files.
+    peripheralFirmwareDirectory = ./firmware;
+  };
+
+  # TODO Check if this is needed
+  # services.udev = {
+  #   extraRules = ''
+  #     # Allow backlight control for non-root users.
+  #     ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="apple-panel-bl", RUN+="${pkgs.coreutils}/bin/chmod 0664 /sys/class/backlight/apple-panel-bl/brightness"
+  #   '';
+  # };
 }

@@ -7,5 +7,6 @@
     ./settings.nix
     ./binds.nix
     ./rules.nix
+    ./debug.nix
   ];
 }
