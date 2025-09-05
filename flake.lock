@@ -934,6 +934,7 @@
         "nix-index-db": "nix-index-db",
         "nixpkgs": "nixpkgs_3",
         "quickshell": "quickshell",
+        "silentSDDM": "silentSDDM",
         "stylix": "stylix",
         "systems": "systems_3",
         "zen-browser": "zen-browser"
@@ -957,6 +958,26 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "silentSDDM": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1756614994,
+        "narHash": "sha256-R0rvblJstTgwKxNqJQJaXN9fgksXFjPH5BYVMXdLsbU=",
+        "owner": "uiriansan",
+        "repo": "SilentSDDM",
+        "rev": "44c39db1c38ce0ab94025e656aec67fa4beedc24",
+        "type": "github"
+      },
+      "original": {
+        "owner": "uiriansan",
+        "repo": "SilentSDDM",
         "type": "github"
       }
     },

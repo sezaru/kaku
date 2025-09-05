@@ -36,4 +36,8 @@
       # swaylock.enable = true;
     };
   };
+
+  home.file.".face.icon" = {
+    source = ./users/sezdocs.png;
+  };
 }

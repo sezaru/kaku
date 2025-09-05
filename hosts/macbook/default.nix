@@ -52,6 +52,11 @@
     peripheralFirmwareDirectory = ./firmware;
   };
 
+  hardware.apple.touchBar = {
+    enable = true;
+    package = pkgs.tiny-dfr;
+  };
+
   # TODO Check if this is needed
   # services.udev = {
   #   extraRules = ''
