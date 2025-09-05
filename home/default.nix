@@ -37,7 +37,7 @@
     };
   };
 
-  home.file.".face.icon" = {
+  home.file.".face" = {
     source = ./users/sezdocs.png;
   };
 }

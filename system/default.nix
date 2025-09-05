@@ -15,6 +15,7 @@ let
     ./services
     ./services/pipewire.nix
     ./services/sddm.nix
+    ./services/accounts.nix
   ];
 
   desktop = base;
