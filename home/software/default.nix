@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./browsers/chromium.nix
-    ./browsers/zen.nix
+    ./browsers/zen
     ./editors/emacs
     ./gtk.nix
     ./media

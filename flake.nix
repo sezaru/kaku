@@ -52,6 +52,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     lanzaboote.url = "github:nix-community/lanzaboote";
 
     # TODO Custom nix packages, check how to create it
@@ -78,7 +83,7 @@
     };
 
     zen-browser = {
-      url = "github:pfaj/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

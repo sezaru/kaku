@@ -7,6 +7,8 @@
 in {
   imports = [
     ./terminal
+    # TODO We can remove all of these by adding them to their modules
+    # Look at zen one for an example on how it is done
     inputs.dankMaterialShell.homeModules.dankMaterialShell
     inputs.nix-index-db.homeModules.nix-index
     inputs.doom-emacs.homeModule

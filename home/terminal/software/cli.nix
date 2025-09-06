@@ -15,7 +15,26 @@
 
     ssh = {
       enable = true;
-      enableDefaultConfig = true;
+      enableDefaultConfig = false;
+
+      matchBlocks = {
+        truenas = {
+          hostname = "192.168.1.201";
+          user = "admin";
+          setEnv = {
+            "TERM" = "xterm-256color";
+          };
+        };
+
+        devenv = {
+          hostname = "192.168.1.203";
+          port = 2022;
+          user = "sezdocs";
+          setEnv = {
+            "TERM" = "xterm-256color";
+          };
+        };
+      };
     };
   };
 }

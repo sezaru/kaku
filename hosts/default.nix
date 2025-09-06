@@ -39,6 +39,7 @@
             };
           }
 
+          inputs.nur.modules.nixos.default
           inputs.agenix.nixosModules.default
           inputs.stylix.nixosModules.stylix
         ];
@@ -71,6 +72,7 @@
             };
           }
 
+          inputs.nur.modules.nixos.default
           inputs.agenix.nixosModules.default
           inputs.stylix.nixosModules.stylix
           inputs.asahi.nixosModules.apple-silicon-support

@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   imports = [./hardware-configuration.nix];
@@ -55,6 +56,11 @@
     # Specify path to peripheral firmware files.
     peripheralFirmwareDirectory = ./firmware;
   };
+
+  environment.systemPackages = [pkgs.asahi-audio];
+
+  services.pipewire.configPackages = lib.mkForce [];
+  services.pipewire.wireplumber.configPackages = lib.mkForce [];
 
   hardware.apple.touchBar = {
     enable = true;
