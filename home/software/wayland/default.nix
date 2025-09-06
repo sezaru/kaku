@@ -3,6 +3,7 @@
 {
   imports = [
     ./niri
+    ./dank_material_shell
   ];
 
   # make stuff work on wayland

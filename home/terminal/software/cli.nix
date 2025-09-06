@@ -11,7 +11,11 @@
 
   programs = {
     eza.enable = true;
-    ssh.enable = true;
     dircolors.enable = true;
+
+    ssh = {
+      enable = true;
+      enableDefaultConfig = true;
+    };
   };
 }

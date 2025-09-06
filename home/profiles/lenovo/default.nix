@@ -1,7 +1,6 @@
 {
   imports = [
     # services
-    ../../services/quickshell
     ../../services/hypridle.nix
 
     # software

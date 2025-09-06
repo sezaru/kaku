@@ -1,6 +1,13 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: let
+  system = pkgs.system;
+in {
   imports = [
     ./terminal
+    inputs.dankMaterialShell.homeModules.dankMaterialShell
     inputs.nix-index-db.homeModules.nix-index
     inputs.doom-emacs.homeModule
   ];

@@ -14,7 +14,7 @@
 
   macbookOutputs = {
     "eDP-1" = {
-      scale = 1.0;
+      scale = 1.2;
 
       position = {
         x = 0;

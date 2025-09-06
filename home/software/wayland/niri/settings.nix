@@ -75,7 +75,6 @@ in {
         {command = ["${pkgs.xwayland-satellite}/bin/xwayland-satellite"];}
         {command = ["${pkgs.wl-clipboard}/bin/wl-paste" "--watch" "cliphist" "store"];}
         {command = ["${pkgs.wl-clipboard}/bin/wl-paste" "--type text" "--watch" "cliphist" "store"];}
-        {command = ["qs"];}
       ];
 
       gestures = {

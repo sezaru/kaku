@@ -13,7 +13,6 @@
 
   macbookPlugins = with pkgs.obs-studio-plugins; [
     obs-gstreamer
-    obs-vaapi
   ];
 in {
   programs.obs-studio = {

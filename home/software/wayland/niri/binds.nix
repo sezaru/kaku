@@ -7,7 +7,7 @@
   quickshell = inputs.quickshell.packages.${pkgs.system}.default;
 in {
   programs.niri.settings.binds = with config.lib.niri.actions; let
-    quickshellIpc = spawn "${quickshell}/bin/qs" "ipc" "call";
+    quickshellIpc = spawn "${quickshell}/bin/qs" "-c" "DankMaterialShell" "ipc" "call";
     playerctl = spawn "${pkgs.playerctl}/bin/playerctl";
     ghostty = spawn "${pkgs.ghostty}/bin/ghostty";
     # TODO See if we can get this from pkgs
@@ -51,8 +51,15 @@ in {
     "Mod+Ctrl+8".action.move-column-to-workspace = 8;
     "Mod+Ctrl+9".action.move-column-to-workspace = 9;
 
-    "Mod+B".action = zen;
-    "Mod+E".action = nautilus;
+    "Mod+B" = {
+      action = zen;
+      hotkey-overlay.title = "Open a browser: zen";
+    };
+
+    "Mod+E" = {
+      action = nautilus;
+      hotkey-overlay.title = "Open a filemanager: nautilus";
+    };
 
     "Mod+Return" = {
       action = ghostty;
@@ -65,6 +72,11 @@ in {
     };
 
     "XF86Search".action = quickshellIpc "spotlight" "toggle";
+
+    "Mod+V".action = quickshellIpc "clipboard" "toggle";
+    "Mod+M".action = quickshellIpc "processList" "toggle";
+    # "Mod+Comma".action = quickshellIpc "settings" "toggle";
+    "Mod+Ctrl+L".action = quickshellIpc "lock" "lock";
 
     "Mod+O" = {
       action = toggle-overview;
@@ -110,6 +122,7 @@ in {
     "Mod+Shift+Equal".action = set-window-height "+10%";
 
     "Mod+P".action.screenshot = {show-pointer = false;};
+    "Print".action.screenshot = {show-pointer = false;};
 
     "Mod+Shift+Slash".action = show-hotkey-overlay;
 

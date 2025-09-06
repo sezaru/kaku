@@ -1,4 +1,5 @@
 {vars, ...}: let
+  name = vars.name;
   keyboardType = vars.keyboardType;
 in {
   programs.niri.settings.input = {
@@ -22,7 +23,10 @@ in {
 
     touchpad = {
       dwt = true;
-      tap = true;
+      tap =
+        if name == "macbook"
+        then false
+        else true;
       natural-scroll = false;
     };
 

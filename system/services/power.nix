@@ -1,9 +1,11 @@
 {
   services = {
-    logind = {
-      powerKey = "suspend";
-      lidSwitch = "suspend";
-      lidSwitchExternalPower = "suspend";
+    logind.settings.Login = {
+      HandlePowerKey = "suspend";
+      HandlePowerKeyLongPress = "poweroff";
+      HandleLidSwitch = "suspend";
+      HandleLidSwitchExternalPower = "suspend";
+      HandleSwitchDocked = "ignore";
     };
 
     power-profiles-daemon.enable = true;
