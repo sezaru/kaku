@@ -1,10 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
-  system = pkgs.system;
-in {
+{inputs, ...}: {
   imports = [
     ./terminal
     # TODO We can remove all of these by adding them to their modules

@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   searchNixpkgs = {
     name = "nixpkgs";
     urls = [

@@ -1,11 +1,12 @@
 {
+  lib,
   config,
   pkgs,
   ...
 }: let
+  # TODO Can't I use pkgs here?
   browser = ["zen"];
   imageViewer = ["org.gnome.Loupe"];
-  # TODO Change this to mpv or vlc?
   videoPlayer = ["io.github.celluloid_player.Celluloid"];
   # TODO Maybe change to one that can use my server?
   audioPlayer = ["io.bassi.Amberol"];
@@ -132,7 +133,7 @@ in {
   home.packages = [
     # used by `gio open` and xdp-gtk
     (pkgs.writeShellScriptBin "xdg-terminal-exec" ''
-      ${pkgs.ghostty}/bin/ghostty start "$@"
+      ${lib.getExe pkgs.ghostty} start "$@"
     '')
     pkgs.xdg-utils
   ];

@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   vars,
   ...
@@ -31,23 +32,23 @@
 
     functions = {
       fcd = ''
-        set -l dir (${pkgs.fd}/bin/fd --type d | ${pkgs.skim}/bin/sk | string trim)
+        set -l dir (${lib.getExe pkgs.fd} --type d | ${lib.getExe pkgs.skim} | string trim)
         if test -n "$dir"
           cd $dir
         end
       '';
 
       installed = ''
-        nix-store --query --requisites /run/current-system/ | string replace -r '.*?-(.*)' '$1' | sort | uniq | ${pkgs.skim}/bin/sk
+        nix-store --query --requisites /run/current-system/ | string replace -r '.*?-(.*)' '$1' | sort | uniq | ${lib.getExe pkgs.skim}
       '';
 
       installedall = ''
-        nix-store --query --requisites /run/current-system/ | ${pkgs.skim}/bin/sk | ${pkgs.wl-clipboard}/bin/wl-copy
+        nix-store --query --requisites /run/current-system/ | ${lib.getExe pkgs.skim} | ${pkgs.wl-clipboard}/bin/wl-copy
       '';
 
       fm = ''
         set -l tmp (mktemp -t "yazi-cwd.XXXXX")
-        ${pkgs.yazi}/bin/yazi $argv --cwd-file $tmp
+        ${lib.getExe pkgs.yazi} $argv --cwd-file $tmp
         set -l cwd (cat $tmp)
         if test -n "$cwd" -a "$cwd" != "$PWD"
           cd $cwd
@@ -56,7 +57,7 @@
       '';
 
       gitgrep = ''
-        ${pkgs.git}/bin/git ls-files | ${pkgs.ripgrep}/bin/rg $argv
+        ${lib.getExe pkgs.git} ls-files | ${lib.getExe pkgs.ripgrep} $argv
       '';
 
       dev = "nix develop --no-pure-eval /etc/nixos#$argv --profile /etc/nixos/.profiles/$argv --command fish";
@@ -76,12 +77,12 @@
     };
 
     shellAbbrs = {
-      z = "${pkgs.zoxide}/bin/zoxide query";
-      zi = "${pkgs.zoxide}/bin/zoxide query -i";
+      z = "${lib.getExe pkgs.zoxide} query";
+      zi = "${lib.getExe pkgs.zoxide} query -i";
     };
 
     shellAliases = {
-      cleanup = "${pkgs.nh}/bin/nh clean all";
+      cleanup = "${lib.getExe pkgs.nh} clean all";
       listgen = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
       nixremove = "nix-store --gc";
       bloat = "nix path-info -Sh /run/current-system";
@@ -91,18 +92,18 @@
       c = "clear";
       q = "exit";
 
-      rm = "${pkgs.gtrash}/bin/gtrash put";
+      rm = "${lib.getExe pkgs.gtrash} put";
 
-      grep = "${pkgs.ripgrep}/bin/rg";
+      grep = lib.getExe pkgs.ripgrep;
 
-      df = "${pkgs.du-dust}/bin/duf";
+      df = lib.getExe pkgs.du-dust;
 
-      test-build = "${pkgs.nh}/bin/nh os test /etc/nixos";
-      switch-build = "${pkgs.nh}/bin/nh os switch /etc/nixos";
+      test-build = "${lib.getExe pkgs.nh} os test /etc/nixos";
+      switch-build = "${lib.getExe pkgs.nh} os switch /etc/nixos";
 
-      l = "${pkgs.eza}/bin/eza -lF --time-style=long-iso --icons";
-      ll = "${pkgs.eza}/bin/eza -h --git --icons --color=auto --group-directories-first -s extension";
-      tree = "${pkgs.eza}/bin/eza --tree --icons --tree";
+      l = "${lib.getExe pkgs.eza} -lF --time-style=long-iso --icons";
+      ll = "${lib.getExe pkgs.eza} -h --git --icons --color=auto --group-directories-first -s extension";
+      tree = "${lib.getExe pkgs.eza} --tree --icons --tree";
     };
 
     plugins = with pkgs.fishPlugins; [

@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   pkgs,
   inputs,
@@ -7,13 +8,15 @@
   quickshell = inputs.quickshell.packages.${pkgs.system}.default;
 in {
   programs.niri.settings.binds = with config.lib.niri.actions; let
-    quickshellIpc = spawn "${quickshell}/bin/qs" "-c" "DankMaterialShell" "ipc" "call";
-    playerctl = spawn "${pkgs.playerctl}/bin/playerctl";
-    ghostty = spawn "${pkgs.ghostty}/bin/ghostty";
+    quickshellIpc = spawn (lib.getExe quickshell) "-c" "DankMaterialShell" "ipc" "call";
+    playerctl = spawn (lib.getExe pkgs.playerctl);
+    ghostty = spawn (lib.getExe pkgs.ghostty);
     # TODO See if we can get this from pkgs
     zen = spawn "zen";
-    nautilus = spawn "${pkgs.nautilus}/bin/nautilus";
+    nautilus = spawn (lib.getExe pkgs.nautilus);
   in {
+    # TODO Add binds to move outputs
+    # TODO Make so windows don't scroll on move
     "XF86MonBrightnessUp".action = quickshellIpc "brightness" "increment" "5" "";
     "XF86MonBrightnessDown".action = quickshellIpc "brightness" "decrement" "5" "";
 

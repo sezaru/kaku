@@ -1,12 +1,13 @@
 {
+  lib,
   pkgs,
   inputs,
   ...
 }: let
   quickshell = inputs.quickshell.packages.${pkgs.system}.default;
 
-  niriAction = "${pkgs.niri}/bin/niri msg action";
-  lockCommand = "${quickshell}/bin/qs ipc call lock lock";
+  niriAction = "${lib.getExe pkgs.niri} msg action";
+  lockCommand = "${lib.getExe quickshell} -c DankMaterialShell ipc call lock lock";
 in {
   services.hypridle = {
     enable = true;

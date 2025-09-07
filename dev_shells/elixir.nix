@@ -7,11 +7,7 @@ inputs.devenv.lib.mkShell {
   inherit inputs pkgs;
 
   modules = [
-    ({
-      config,
-      pkgs,
-      ...
-    }: let
+    ({config, ...}: let
       state_dir = config.env.DEVENV_STATE;
 
       mix_dir = "${state_dir}/mix";

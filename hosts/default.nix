@@ -10,7 +10,7 @@
     mod = "${self}/system";
 
     # get the basic config to build on top of
-    inherit (import "${self}/system") desktop laptop macbook lenovo;
+    inherit (import "${self}/system") macbook lenovo;
   in {
     lenovo = nixosSystem rec {
       specialArgs = {

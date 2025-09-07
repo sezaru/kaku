@@ -16,6 +16,7 @@ let
     ./services/pipewire.nix
     ./services/sddm.nix
     ./services/accounts.nix
+    ./services/flatpak.nix
   ];
 
   desktop = base;
@@ -29,8 +30,6 @@ let
 
   lenovo = laptop ++ [./services/ananicy.nix];
 
-  # TODO I don't think we need this service
-  # macbook = laptop ++ [./services/tiny-dfr.nix];
   macbook = laptop;
 in {
   inherit desktop laptop lenovo macbook;

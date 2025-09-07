@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   pkgs,
   ...
@@ -71,8 +72,7 @@ in {
       hotkey-overlay.skip-at-startup = true;
 
       spawn-at-startup = [
-        # (makeCommand "hyprlock")
-        {command = ["${pkgs.xwayland-satellite}/bin/xwayland-satellite"];}
+        {command = [(lib.getExe pkgs.xwayland-satellite)];}
         {command = ["${pkgs.wl-clipboard}/bin/wl-paste" "--watch" "cliphist" "store"];}
         {command = ["${pkgs.wl-clipboard}/bin/wl-paste" "--type text" "--watch" "cliphist" "store"];}
       ];

@@ -1,4 +1,4 @@
-{vars, ...}: {
+{
   programs.niri.settings.environment = {
     DISPLAY = ":0";
 

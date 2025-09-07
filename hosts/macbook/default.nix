@@ -175,10 +175,6 @@
           Icon = "brightness_high";
           Action = "BrightnessUp";
         }
-        {
-          Icon = "mic_off";
-          Action = "MicMute";
-        }
         # {
         #   Icon = "search";
         #   Action = "Search";
@@ -202,6 +198,10 @@
         {
           Icon = "fast_forward";
           Action = "NextSong";
+        }
+        {
+          Icon = "mic_off";
+          Action = "MicMute";
         }
         {
           Icon = "volume_off";
@@ -230,12 +230,4 @@
       ];
     };
   };
-
-  # TODO Check if this is needed
-  # services.udev = {
-  #   extraRules = ''
-  #     # Allow backlight control for non-root users.
-  #     ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="apple-panel-bl", RUN+="${pkgs.coreutils}/bin/chmod 0664 /sys/class/backlight/apple-panel-bl/brightness"
-  #   '';
-  # };
 }
