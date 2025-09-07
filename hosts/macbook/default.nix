@@ -37,6 +37,11 @@
     '';
   };
 
+  # This makes the battery charge stop at 80%
+  services.udev.extraRules = ''
+    SUBSYSTEM=="power_supply", KERNEL=="macsmc-battery", ATTR{charge_control_start_threshold}="60", ATTR{charge_control_end_threshold}="80"
+  '';
+
   networking.hostName = "macbook";
 
   security.tpm2.enable = true;
@@ -200,6 +205,18 @@
           Action = "NextSong";
         }
         {
+          Text = "Home";
+          Action = "Home";
+        }
+        {
+          Text = "End";
+          Action = "End";
+        }
+        {
+          Icon = "print";
+          Action = "Print";
+        }
+        {
           Icon = "mic_off";
           Action = "MicMute";
         }
@@ -214,18 +231,6 @@
         {
           Icon = "volume_up";
           Action = "VolumeUp";
-        }
-        {
-          Text = "Home";
-          Action = "Home";
-        }
-        {
-          Text = "End";
-          Action = "End";
-        }
-        {
-          Icon = "print";
-          Action = "Print";
         }
       ];
     };

@@ -9,7 +9,7 @@
     };
 
     # TODO We are missing performance power
-    # power-profiles-daemon.enable = true;
+    power-profiles-daemon.enable = true;
 
     # Battery info
     upower = {
@@ -22,14 +22,14 @@
       criticalPowerAction = "Hibernate";
     };
 
-    # TODO TLP allows to set the battery threshold
-    tlp = {
-      enable = true;
+    # # TODO TLP allows to set the battery threshold
+    # tlp = {
+    #   enable = true;
 
-      settings = {
-        START_CHARGE_THRESH_BAT0 = 60;
-        STOP_CHARGE_THRESH_BAT0 = 80;
-      };
-    };
+    #   settings = {
+    #     START_CHARGE_THRESH_BAT0 = 60;
+    #     STOP_CHARGE_THRESH_BAT0 = 80;
+    #   };
+    # };
   };
 }

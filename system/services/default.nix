@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   services = {
     printing.enable = true;
 
@@ -11,18 +11,21 @@ _: {
     };
 
     irqbalance.enable = true;
+
+    # Replaces capslock with ctrl and esc systemwide
+    interception-tools = let
+      itools = pkgs.interception-tools;
+      itools-caps = pkgs.interception-tools-plugins.caps2esc;
+    in {
+      enable = true;
+      plugins = [itools-caps];
+      # requires explicit paths: https://github.com/NixOS/nixpkgs/issues/126681
+      udevmonConfig = pkgs.lib.mkDefault ''
+        - JOB: "${itools}/bin/intercept -g $DEVNODE | ${itools-caps}/bin/caps2esc -m 1 | ${itools}/bin/uinput -d $DEVNODE"
+          DEVICE:
+            EVENTS:
+              EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
+      '';
+    };
   };
-
-  # # Use in place of hypridle's before_sleep_cmd, since systemd does not wait for
-  # # it to complete
-  # powerManagement = {
-  #   enable = true;
-  #   powerDownCommands = ''
-  #     # Lock all sessions
-  #     loginctl lock-sessions
-
-  #     # Wait for lockscreen(s) to be up
-  #     sleep 1
-  #   '';
-  # };
 }

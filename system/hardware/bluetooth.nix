@@ -4,13 +4,16 @@
     package = pkgs.bluez5-experimental;
 
     settings = {
-      # make Xbox Series X controller work
       General = {
         Experimental = true;
         FastConnectable = true;
         powerOnBoot = true;
         JustWorksRepairing = "always";
         Privacy = "device";
+      };
+
+      Policy = {
+        AutoEnable = false;
       };
     };
   };

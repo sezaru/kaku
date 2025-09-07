@@ -9,9 +9,9 @@ in {
 
         options =
           if keyboardType == "normal"
-          then "altwin:swap_lalt_lwin,compose:ralt,ctrl:nocaps"
+          then "altwin:swap_lalt_lwin,compose:ralt"
           else if keyboardType == "mac"
-          then "compose:ralt,ctrl:nocaps"
+          then "compose:ralt"
           else abort "Unkown keyboard type";
       };
 
